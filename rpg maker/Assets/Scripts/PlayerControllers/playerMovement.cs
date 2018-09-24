@@ -7,6 +7,8 @@ public class playerMovement : MonoBehaviour {
 	public float speed;
 	bool isMap;
     public int hp;
+    public GameObject guiController;
+    public playerGUIController guiScript;
 
 	public float interactiveDist;
     public Transform originPoint;
@@ -16,6 +18,7 @@ public class playerMovement : MonoBehaviour {
 	void Start () 
 	{
         dir = new Vector2();
+        guiScript = guiController.GetComponent<playerGUIController>();
 	}
 
 	void FixedUpdate () 
@@ -62,6 +65,7 @@ public class playerMovement : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        guiScript.refreshBar(damage);
         if (hp<=0)
         {
             Destroy(gameObject);

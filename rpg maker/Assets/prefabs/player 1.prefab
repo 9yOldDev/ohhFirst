@@ -205,6 +205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   hp: 5
+  guiController: {fileID: 0}
+  guiScript: {fileID: 0}
   interactiveDist: 1
   originPoint: {fileID: 4495188607248328}
   dir: {x: 0, y: 0}
