@@ -9,6 +9,8 @@ public class playerMovement : MonoBehaviour {
     public int hp;
     public GameObject guiController;
     public playerGUIController guiScript;
+    public Animator animator;
+    private Vector3 pos;
 
 	public float interactiveDist;
     public Transform originPoint;
@@ -19,10 +21,12 @@ public class playerMovement : MonoBehaviour {
 	{
         dir = new Vector2();
         guiScript = guiController.GetComponent<playerGUIController>();
+        animator.SetFloat("health", hp);
 	}
 
 	void FixedUpdate () 
 	{
+        pos = transform.position;
 		//Movement
 			if (Input.GetKey (KeyCode.A)) {
 				transform.eulerAngles = new Vector3 (0f,0f,90);
@@ -57,6 +61,19 @@ public class playerMovement : MonoBehaviour {
 
     }
 
+    void LateUpdate()
+    {
+        if (pos != transform.position)
+        {
+            animator.SetBool("isWalking", true);
+        }
+
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+    }
+
 	void OnTriggerEnter2D(Collider2D other)
 	{	
 			Debug.Log ("WDEPLES WWW GOWNO");	
@@ -68,8 +85,11 @@ public class playerMovement : MonoBehaviour {
         guiScript.refreshBar(damage);
         if (hp<=0)
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
+            GetComponent<Collider2D>().enabled = false;
+            speed = 0;
         }
+        animator.SetFloat("health", hp);
         Debug.Log(hp);
     }
 		
