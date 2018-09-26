@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 212201588301437570}
   - component: {fileID: 114080190328241560}
   - component: {fileID: 114119509857694338}
+  - component: {fileID: 95831371101115318}
+  - component: {fileID: 61936202476485170}
+  - component: {fileID: 50754194490442334}
   m_Layer: 0
   m_Name: strongShot
   m_TagString: powerBall
@@ -36,12 +39,74 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1943417188329296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -21.18, z: 0}
+  m_LocalPosition: {x: -1.5484718, y: -24.3476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50754194490442334
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943417188329296}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61936202476485170
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943417188329296}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!95 &95831371101115318
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943417188329296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114080190328241560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3bdf7cec5c0d24fae5eca5070220d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 1.6
+  multiplier: 2.5
 --- !u!114 &114119509857694338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   lifeTime: 3
+  particle: {fileID: 198048439036876452, guid: fc493992dabfbe245a13be7abfa1f306, type: 2}
 --- !u!212 &212201588301437570
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -36,9 +36,9 @@ GameObject:
   - component: {fileID: 4104452733284178}
   - component: {fileID: 212234650270202248}
   - component: {fileID: 50662981581928086}
-  - component: {fileID: 114440524072491266}
   - component: {fileID: 61009399002140178}
   - component: {fileID: 95801720060922536}
+  - component: {fileID: 114440524072491266}
   m_Layer: 11
   m_Name: player 1
   m_TagString: Player
@@ -223,9 +223,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   hp: 5
+  strongBall: {fileID: 1943417188329296, guid: 108c9b72ddca7cb4bab15eb5b285fa6c, type: 2}
   guiController: {fileID: 0}
+  strongBallText:
+  - {fileID: 0}
   guiScript: {fileID: 0}
   animator: {fileID: 95801720060922536}
+  strongBallCooldown: 5
+  strongBallMaxCharg: 1
   interactiveDist: 1
   originPoint: {fileID: 4495188607248328}
   dir: {x: 0, y: 0}

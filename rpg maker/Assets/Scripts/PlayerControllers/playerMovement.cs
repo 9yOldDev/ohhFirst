@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class playerMovement : MonoBehaviour {
     public GameObject strongBall;
     private strongBallController powerBall;
     public GameObject guiController;
+    public Text[] strongBallText = new Text[1];
     public playerGUIController guiScript;
     public Animator animator;
     private Vector3 pos;
@@ -30,7 +32,7 @@ public class playerMovement : MonoBehaviour {
         guiScript = guiController.GetComponent<playerGUIController>();
         animator.SetFloat("health", hp);
 
-        strongBallActCooldown = 3;
+        strongBallActCooldown = strongBallCooldown;
         strongBallActCharg = 0;
         powerBall = strongBall.GetComponent<strongBallController>();
     }
@@ -82,21 +84,23 @@ public class playerMovement : MonoBehaviour {
                 //strongBall
             if (strongBallActCooldown>0)
             {
+                strongBallText[0].text =Mathf.Floor(strongBallActCooldown).ToString();
                 strongBallActCooldown -= Time.deltaTime;
             }
 
             else if(strongBallActCooldown<=0)
             {
-                Debug.Log("siemaEniu");
+                bool pressed = false;
                 if (Input.GetMouseButton(1))
                 {                    
                     strongBallActCharg += Time.deltaTime;
+                    pressed = true;
                 }
 
-                if (Input.GetMouseButtonUp(1) || strongBallActCharg>=strongBallMaxCharg && strongBallActCharg>0)
+                if (!Input.GetMouseButton(1) && strongBallActCharg>0  || strongBallActCharg>=strongBallMaxCharg)
                 {           
-                    powerBall.spawnBall(transform.position, strongBallActCharg);
-                    strongBallActCharg = strongBallMaxCharg;
+                    powerBall.spawnBall(transform.position, strongBallActCharg, this.transform.rotation);
+                    strongBallActCharg = 0;
                     strongBallActCooldown = strongBallCooldown;
                 }
             }
