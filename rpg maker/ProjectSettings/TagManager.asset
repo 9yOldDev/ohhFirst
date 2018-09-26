@@ -8,6 +8,7 @@ TagManager:
   - tiles
   - house1
   - chest
+  - powerBall
   layers:
   - Default
   - TransparentFX

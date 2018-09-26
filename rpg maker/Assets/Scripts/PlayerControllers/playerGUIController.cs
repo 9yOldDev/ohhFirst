@@ -24,10 +24,12 @@ public class playerGUIController : MonoBehaviour {
 
     public void refreshBar(int damage)
     {
-        string hpShow;
-        hpShow = playerScript.hp.ToString() + "/" + maxHp.ToString();
-        transform.localScale -= scaleByDamage * damage;
-        hpText.text = hpShow;
-        
+        if (hp>0)
+        {
+            string hpShow;
+            hpShow = playerScript.hp.ToString() + "/" + maxHp.ToString();
+            transform.localScale -= scaleByDamage * damage;
+            hpText.text = hpShow;
+        }              
     }
 }

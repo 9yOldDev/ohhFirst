@@ -14,10 +14,17 @@ public class weaponController : MonoBehaviour {
 		
 	}
 	void FixedUpdate () {
-		if (Input.GetMouseButtonDown(0) && actTime<=0) 
-		{
-			shoot ();
-			actTime = fireRate;
+        if (Input.GetMouseButtonDown(0) && actTime <= 0)
+        {
+            GameObject[] players;
+            playerMovement playerStats;
+            players = GameObject.FindGameObjectsWithTag("Player");
+            playerStats = players[0].GetComponent<playerMovement>();
+            if (playerStats.hp > 0)
+            {
+                shoot();
+                actTime = fireRate;
+            }
 		}
 
 		if (actTime>0) 
