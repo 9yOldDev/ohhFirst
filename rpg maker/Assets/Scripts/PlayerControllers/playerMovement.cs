@@ -123,7 +123,7 @@ public class playerMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{	
-			Debug.Log ("WDEPLES WWW GOWNO");	
+			Debug.Log (oter);	
 	}
 
     public void TakeDamage(int damage)
