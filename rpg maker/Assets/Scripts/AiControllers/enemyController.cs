@@ -24,6 +24,8 @@ public class enemyController : MonoBehaviour {
     public float rotSpeed;
     [SerializeField] private bool rotSide;
     //false-left true-rigt
+    //itemLoot
+    [SerializeField] private GameObject[] items = new GameObject[2];
     //other
     public int hp;
 
@@ -73,8 +75,15 @@ public class enemyController : MonoBehaviour {
         healthBar.showDamage(damage);
         if (hp<=0)
         {
+            lootItems();
             Destroy(gameObject);
         }
         Debug.Log("DamageTaken");
+    }
+
+    private void lootItems()
+    {
+        int witch = Random.Range(0, items.Length-1);
+        Instantiate(items[0], transform.position, Quaternion.identity);
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - house1
   - chest
   - powerBall
+  - coin
+  - healthPack
   layers:
   - Default
   - TransparentFX

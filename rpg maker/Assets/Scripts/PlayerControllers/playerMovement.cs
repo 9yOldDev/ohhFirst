@@ -39,7 +39,6 @@ public class playerMovement : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Debug.Log(strongBallActCooldown);
         pos = transform.position;
         //Movement
         if (hp > 0)
