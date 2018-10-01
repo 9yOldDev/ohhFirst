@@ -122,7 +122,7 @@ public class playerMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{	
-			Debug.Log (oter);	
+			Debug.Log (other.name);	
 	}
 
     public void TakeDamage(int damage)

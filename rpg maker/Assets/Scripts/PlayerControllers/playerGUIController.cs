@@ -32,4 +32,17 @@ public class playerGUIController : MonoBehaviour {
             hpText.text = hpShow;
         }              
     }
+
+    public void addPoint(string what, int howMany)
+    {
+        if (what=="point")
+        {
+
+        }
+
+        else if(what=="coin")
+        {
+
+        }
+    }
 }

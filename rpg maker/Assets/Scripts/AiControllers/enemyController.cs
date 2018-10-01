@@ -83,7 +83,7 @@ public class enemyController : MonoBehaviour {
 
     private void lootItems()
     {
-        int witch = Random.Range(0, items.Length-1);
-        Instantiate(items[0], transform.position, Quaternion.identity);
+        int witch = Random.Range(0, items.Length);
+        Instantiate(items[witch], transform.position, Quaternion.identity);
     }
 }
