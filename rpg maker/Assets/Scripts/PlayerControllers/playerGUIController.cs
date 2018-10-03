@@ -10,11 +10,17 @@ public class playerGUIController : MonoBehaviour {
     public GameObject healthBar;
     public Text hpText;
     private Vector3 scaleByDamage;
+
+    public Text coinsText;
+    public int coins;
+
     private int maxHp;
     private int hp; //from player
 
     void Start()
     {
+        coins = 0;
+        coinsText.text = coins.ToString();
         playerScript = player.GetComponent<playerMovement>();
         maxHp = playerScript.hp;
         this.hp = playerScript.hp;
@@ -33,16 +39,28 @@ public class playerGUIController : MonoBehaviour {
         }              
     }
 
-    public void addPoint(string what, int howMany)
+    public void addHealth(int healValue)
     {
-        if (what=="point")
+        if (playerScript.hp  + healValue <= maxHp) //hp -> 2 maxHp -> 5 healValue -> 2
         {
-
+            Debug.Log("Dodano max");
+            playerScript.hp += healValue;
+            refreshBar(-healValue);
         }
 
-        else if(what=="coin")
+        else if(playerScript.hp + healValue > maxHp)
         {
-
+            Debug.Log("Dodano mniej niz max");
+            int howMuch = maxHp - playerScript.hp;
+            playerScript.hp += howMuch;
+            refreshBar(-howMuch);
         }
     }
+
+    public void addCoin(int value)
+    {
+        coins += value;
+        coinsText.text = coins.ToString();
+    }
+
 }

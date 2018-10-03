@@ -8,9 +8,11 @@ public class playerMovement : MonoBehaviour {
 	public float speed;
 	bool isMap;
     public int hp;
+    public int coinValue;
     public GameObject strongBall;
     private strongBallController powerBall;
     public GameObject guiController;
+    public GameObject healParticle;
     public Text[] strongBallText = new Text[1];
     public playerGUIController guiScript;
     public Animator animator;
@@ -83,7 +85,7 @@ public class playerMovement : MonoBehaviour {
                 //strongBall
             if (strongBallActCooldown>0)
             {
-                strongBallText[0].text =Mathf.Floor(strongBallActCooldown).ToString();
+                strongBallText[0].text = Mathf.Floor(strongBallActCooldown).ToString();
                 strongBallActCooldown -= Time.deltaTime;
             }
 
@@ -121,9 +123,20 @@ public class playerMovement : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D other)
-	{	
-			Debug.Log (other.name);	
-	}
+	{
+        if (other.tag == "healthPack")
+        {
+            guiScript.addHealth(other.GetComponent<healthPack>().hpRestore);
+            Instantiate(healParticle, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+        }
+
+        if (other.tag == "coin")
+        {
+            guiScript.addCoin(coinValue);
+            Destroy(other.gameObject);
+        }
+    }
 
     public void TakeDamage(int damage)
     {
